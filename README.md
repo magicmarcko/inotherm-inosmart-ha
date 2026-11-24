@@ -137,7 +137,7 @@ Dieses Projekt baut auf folgenden Open-Source-Projekten und Spezifikationen auf:
 - **[bleak-retry-connector](https://github.com/Bluetooth-Devices/bleak-retry-connector)** & **[bleak-esphome](https://github.com/Bluetooth-Devices/bleak-esphome)** – Robuster BLE-Verbindungsaufbau über ESPHome Bluetooth Proxies.
 - **[Improv Wi-Fi](https://www.improv-wifi.com/)** ([C++ SDK](https://github.com/improv-wifi/sdk-cpp)) – Serielles WLAN-Provisioning in [`esphome/flash_esp32.py`](esphome/flash_esp32.py).
 - **[HACS](https://hacs.xyz/)** – Integration als benutzerdefiniertes Repository über [`hacs.json`](hacs.json).
-- **[Inotherm Inosmart](https://www.inotherm.de/)** – Hersteller des BT 640 Türsystems und des verwendeten Nordic-UART-/RC6-Protokolls.
+- **[Inotherm Inosmart](https://www.inotherm-tuer.de/bedienungsanleitung/inosmart/)** – Hersteller-Bedienungsanleitung des BT 640 Türsystems.
 
 ---
 
