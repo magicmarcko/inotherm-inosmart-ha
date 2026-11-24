@@ -5,6 +5,8 @@
 Lokale Steuerung von **Inotherm Haustüren mit Inosmart BT 640** über **Bluetooth Low Energy (BLE)** – wahlweise direkt in **Home Assistant** (über einen ESP32 Bluetooth Proxy in Türnähe) oder per **Standalone-CLI** unter Linux.
 
 > **Kein Cloud-Gateway, kein Hardware-Eingriff an der Tür:** Die Kommunikation läuft vollständig lokal über das native BLE-Nordic-UART-Protokoll der Tür (Challenge-Response mit RC6-32/20/16 und SHA-1).
+>
+> **Neu bei ESP32 oder Home Assistant?** Dann starte am besten mit der **[Schritt-für-Schritt-Anleitung für Einsteiger](docs/ANLEITUNG_EINSTEIGER.md)** (ohne Fachchinesisch erklärt).
 
 ---
 
@@ -135,7 +137,6 @@ Dieses Projekt baut auf folgenden Open-Source-Projekten und Spezifikationen auf:
 - **[ESPHome Bluetooth Proxies](https://esphome.io/projects/?type=bluetooth)** ([GitHub](https://github.com/esphome/bluetooth-proxies)) – Referenz-Konfiguration (`esp32-generic`) für aktive BLE-Proxies.
 - **[Bleak](https://github.com/hbldh/bleak)** – Asynchrone Python-BLE-Bibliothek für Linux BlueZ ([`inosmart_ble.py`](inosmart_ble.py)) und Home Assistant.
 - **[bleak-retry-connector](https://github.com/Bluetooth-Devices/bleak-retry-connector)** & **[bleak-esphome](https://github.com/Bluetooth-Devices/bleak-esphome)** – Robuster BLE-Verbindungsaufbau über ESPHome Bluetooth Proxies.
-- **[Improv Wi-Fi](https://www.improv-wifi.com/)** ([C++ SDK](https://github.com/improv-wifi/sdk-cpp)) – Serielles WLAN-Provisioning in [`esphome/flash_esp32.py`](esphome/flash_esp32.py).
 - **[HACS](https://hacs.xyz/)** – Integration als benutzerdefiniertes Repository über [`hacs.json`](hacs.json).
 - **[Inotherm Inosmart](https://www.inotherm-tuer.de/bedienungsanleitung/inosmart/)** – Hersteller-Bedienungsanleitung des BT 640 Türsystems.
 

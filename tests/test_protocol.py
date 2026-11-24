@@ -13,7 +13,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 import inosmart_ble  # noqa: E402
-import inosmart_protocol as proto  # noqa: E402
+
+proto = inosmart_ble._load_submodule("protocol")
 
 
 class TestInosmartCrypto(unittest.TestCase):
