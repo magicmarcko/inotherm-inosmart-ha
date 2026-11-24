@@ -1,0 +1,19 @@
+# Python & venv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ESPHome build & local secrets/binaries
+.esphome/
+esphome/.esphome/
+esphome/secrets.yaml
+esphome/firmware/
+
+# Reverse-engineering artifacts (proprietary APK / IL dumps)
+re/
+
+# Archives & OS files
+*.tar.gz
+*.zip
+.DS_Store

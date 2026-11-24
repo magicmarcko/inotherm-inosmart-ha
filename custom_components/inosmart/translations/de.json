@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "confirm": {
+        "title": "Inotherm Inosmart BLE",
+        "description": "Gefundene Tür {address}. Für die sofortige Kopplung an der Steuereinheit Taste 1 drücken und mit Admin-Finger bestätigen (beide LEDs leuchten weiß).",
+        "data": {
+          "door_name": "Name der Tür",
+          "imei": "Client-IMEI (15 Ziffern)",
+          "admin_password": "Admin-Passwort (optional, nur für Taste-3-Funktionen)",
+          "pair_on_setup": "Sofort über BLE koppeln (Taste 1 + Admin-Finger aktiv)"
+        }
+      },
+      "user": {
+        "title": "Inotherm Inosmart einrichten",
+        "description": "Wähle deine Inosmart BT 640 Tür aus oder gib die BLE-MAC-Adresse ein. Client-IMEI: {imei}",
+        "data": {
+          "address": "Bluetooth-Adresse",
+          "door_name": "Name der Tür",
+          "imei": "Client-IMEI (15 Ziffern)",
+          "admin_password": "Admin-Passwort (optional)",
+          "pair_on_setup": "Sofort über BLE koppeln (Taste 1 + Admin-Finger aktiv)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Bluetooth-Verbindung zur Tür fehlgeschlagen.",
+      "not_in_pairing_mode": "Tür ist nicht im Kopplungsmodus (Taste 1 + Admin-Finger drücken, LEDs müssen weiß leuchten).",
+      "invalid_imei": "Die IMEI muss aus genau 15 Ziffern bestehen (keine führende Null).",
+      "unknown": "Unerwarteter Fehler bei der Einrichtung."
+    },
+    "abort": {
+      "already_configured": "Diese Tür ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Inosmart Optionen",
+        "description": "Aktuelle Client-IMEI: {imei}",
+        "data": {
+          "door_name": "Name der Tür",
+          "admin_password": "Admin-Passwort (optional)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "open_door": { "name": "Tür öffnen" },
+      "ready_to_open": { "name": "Tag-Entriegelung (Ready2Open)" },
+      "relay2_open": { "name": "Relais 2 schalten" },
+      "gw_relay1_open": { "name": "Gateway Relais 1" },
+      "gw_relay2_open": { "name": "Gateway Relais 2" },
+      "pair_phone": { "name": "Telefon koppeln (Taste 1)" },
+      "refresh_info": { "name": "Status & Info abrufen" }
+    },
+    "number": {
+      "integrated_led": { "name": "Griff-/Tür-LED (HLED)" },
+      "external_led": { "name": "Zusatz-LED (SLED)" }
+    },
+    "sensor": {
+      "firmware_version": { "name": "Firmware-Version" },
+      "main_lock_counter": { "name": "Öffnungszähler Hauptschloss" },
+      "temperature": { "name": "Temperatur Steuerung" },
+      "client_imei": { "name": "Client-IMEI" },
+      "last_status": { "name": "Letzter Status" }
+    }
+  }
+}

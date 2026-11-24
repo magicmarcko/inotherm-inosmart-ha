@@ -1,0 +1,70 @@
+# ESP32 als ESPHome Bluetooth Proxy direkt in Türnähe für Inotherm Inosmart (BT 640)
+#
+# Da die BLE-Reichweite der Inotherm BT 640 absichtlich kurz ist, platziert man
+# einen ESP32 (ca. 4-6 EUR) in einer Steckdose nahe der Haustür.
+# Home Assistant nutzt diesen ESP32 transparent als aktiven BLE-Proxy für
+# `custom_components/inosmart` – ohne eigene C++-Krypto auf dem ESP32!
+#
+# WICHTIG: Die Inosmart-Tür sendet beim Verbindungsaufbau ein unaufgefordertes
+# `ESP_GAP_BLE_SEC_REQ_EVT`. Das lokale Override `custom_components/bluetooth_connection`
+# lehnt dieses SMP-Request ab (`false`), genau wie Linux BlueZ, sodass die
+# unverschlüsselte BLE-GATT-Verbindung für Nordic UART stabil offen bleibt
+# (die eigentliche Authentifizierung läuft über RC6 / SHA-1 im Inosmart-Protokoll).
+
+substitutions:
+  name: inosmart-door-proxy
+  friendly_name: Haustür Bluetooth Proxy
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  name_add_mac_suffix: true
+
+external_components:
+  - source:
+      type: local
+      path: custom_components
+    components: [bluetooth_connection]
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  # Optional für verschlüsselte HA-Verbindung:
+  # encryption:
+  #   key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+  # Optional:
+  #   password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "${friendly_name} Fallback"
+
+esp32_ble:
+  io_capability: none
+  auth_req_mode: no_bond
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: true
+
+bluetooth_proxy:
+  active: true
+
+button:
+  - platform: safe_mode
+    id: button_safe_mode
+    name: Safe Mode Boot
+
+  - platform: factory_reset
+    id: factory_reset_btn
+    name: Factory reset

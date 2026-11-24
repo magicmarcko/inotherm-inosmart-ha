@@ -1,0 +1,86 @@
+unlock:
+  name: "Tür öffnen / Relais auslösen"
+  description: "Führt einen BLE-Schaltvorgang an der Inosmart-Tür aus (Standard: Hauptschloss)."
+  fields:
+    entry_id:
+      name: Config Entry ID
+      description: Optional bei mehreren Türen.
+      example: "0123456789abcdef"
+      selector:
+        text:
+    task:
+      name: Aufgabe (BLE_RTASK)
+      description: "0 = Tür öffnen, 1 = Ready2Open, 2 = Relais 2, 3 = GW Relais 1, 4 = GW Relais 2, 5 = GW beide"
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 5
+          mode: box
+
+pair_device:
+  name: Telefon-Kopplung (Taste 1)
+  description: Koppelt die synthetische Client-IMEI an die Tür. Vorher Taste 1 + Admin-Finger an der Tür (LEDs weiß).
+  fields:
+    entry_id:
+      name: Config Entry ID
+      selector:
+        text:
+
+set_led:
+  name: LED-Helligkeit setzen
+  description: Setzt HLED (0-60%) und/oder SLED (0-75%). Erfordert Admin-Passwort + Taste 3 (oder BT Demo-Modus).
+  fields:
+    entry_id:
+      name: Config Entry ID
+      selector:
+        text:
+    hled:
+      name: Griff-/Tür-LED (HLED)
+      selector:
+        number:
+          min: 0
+          max: 60
+          unit_of_measurement: "%"
+    sled:
+      name: Zusatz-LED (SLED)
+      selector:
+        number:
+          min: 0
+          max: 75
+          unit_of_measurement: "%"
+
+set_free_entrance:
+  name: Freien Durchgang schalten
+  description: Aktiviert/deaktiviert den freien Durchgang (0 Minuten = aus). Erfordert Admin-Passwort + Taste 3.
+  fields:
+    entry_id:
+      name: Config Entry ID
+      selector:
+        text:
+    minutes:
+      name: Dauer (Minuten)
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 1440
+          unit_of_measurement: "min"
+    io_mask:
+      name: Ausgangs-Bitmaske
+      description: "1 = Hauptschloss, 4 = Relais 2, 16 = GW Relais 1, 32 = GW Relais 2"
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 63
+          mode: box
+
+sync_clock:
+  name: Uhrzeit synchronisieren
+  description: Schreibt die aktuelle UTC-Zeit in die Türsteuerung (erfordert Admin-Session).
+  fields:
+    entry_id:
+      name: Config Entry ID
+      selector:
+        text:
