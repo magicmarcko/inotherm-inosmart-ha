@@ -1,3 +1,5 @@
+![Inotherm Inosmart BLE – ESPHome BLE Proxy – Home Assistant](docs/header.svg)
+
 # Inotherm Inosmart (BT 640) – Home Assistant & BLE Integration
 
 Lokale Steuerung von **Inotherm Haustüren mit Inosmart BT 640** über **Bluetooth Low Energy (BLE)** – wahlweise direkt in **Home Assistant** (über einen ESP32 Bluetooth Proxy in Türnähe) oder per **Standalone-CLI** unter Linux.
