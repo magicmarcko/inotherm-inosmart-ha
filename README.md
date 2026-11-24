@@ -124,6 +124,21 @@ Die verwendete Adresse und synthetische IMEI werden lokal unter `~/.config/inosm
 
 ---
 
+## Credits & Verwendete Projekte
+
+Dieses Projekt baut auf folgenden Open-Source-Projekten und Spezifikationen auf:
+
+- **[Home Assistant](https://www.home-assistant.io/)** ([GitHub](https://github.com/home-assistant/core)) – Smart-Home-Plattform und Bluetooth-Stack (`habluetooth`).
+- **[ESPHome](https://esphome.io/)** ([GitHub](https://github.com/esphome/esphome)) – Firmware-Framework für den ESP32; das lokale Override [`esphome/custom_components/bluetooth_connection/`](esphome/custom_components/bluetooth_connection/) basiert auf der `bluetooth_connection`-Komponente von ESPHome (angepasst für `ESP_GAP_BLE_SEC_REQ_EVT` → `false`).
+- **[ESPHome Bluetooth Proxies](https://esphome.io/projects/?type=bluetooth)** ([GitHub](https://github.com/esphome/bluetooth-proxies)) – Referenz-Konfiguration (`esp32-generic`) für aktive BLE-Proxies.
+- **[Bleak](https://github.com/hbldh/bleak)** – Asynchrone Python-BLE-Bibliothek für Linux BlueZ ([`inosmart_ble.py`](inosmart_ble.py)) und Home Assistant.
+- **[bleak-retry-connector](https://github.com/Bluetooth-Devices/bleak-retry-connector)** & **[bleak-esphome](https://github.com/Bluetooth-Devices/bleak-esphome)** – Robuster BLE-Verbindungsaufbau über ESPHome Bluetooth Proxies.
+- **[Improv Wi-Fi](https://www.improv-wifi.com/)** ([C++ SDK](https://github.com/improv-wifi/sdk-cpp)) – Serielles WLAN-Provisioning in [`esphome/flash_esp32.py`](esphome/flash_esp32.py).
+- **[HACS](https://hacs.xyz/)** – Integration als benutzerdefiniertes Repository über [`hacs.json`](hacs.json).
+- **[Inotherm Inosmart](https://www.inotherm.de/)** – Hersteller des BT 640 Türsystems und des verwendeten Nordic-UART-/RC6-Protokolls.
+
+---
+
 ## Lizenz & Haftungsausschluss
 
 Inoffizielles Community-Projekt auf Basis einer Protokoll-Analyse für Interoperabilität mit Home Assistant. Nutzung auf eigene Verantwortung.
